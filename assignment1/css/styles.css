@@ -1,0 +1,42 @@
+body{
+    background-image: linear-gradient(black, rgb(178, 35, 35));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#image{
+    align-items: center;
+    max-width: 25vw;
+    max-height: 25vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2vw;
+    padding-bottom: 1vw;
+    border-radius: 30%;
+}
+
+.header{
+    color: white;
+    text-align: center;
+    font-size: 50px;
+}
+
+.showBox{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    background-color: rgb(196, 54, 54);
+    max-width: 30vw;
+    max-height: 40vw;
+    border-radius: 40px;
+}
+
+.text{
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-bottom: 2vw;
+    font-size: 0.7vw;
+    font-family: 'Open Sans', sans-serif;
+}
