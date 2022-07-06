@@ -1,28 +1,26 @@
 const review = document.getElementById('review');
 const rating = document.getElementById('rating');
 const post = document.getElementById('post');
-const save = [
-	{
-		review: '',
-		rating: 0,
-	},
-];
+const save = [];
 
-window.localStorage.setItem('', JSON.stringify(save));
-
-post.addEventListener('click', () => {
-	postReview(save);
+post.addEventListener('click', (event) => {
+	event.preventDefault();
+	reviews();
 });
 
-function postReview() {
+function reviews() {
 	const postReview = document.getElementById('postReview');
 
-	save.forEach(() => {
-		const newParagraph = document.createElement('p');
-		const newRating = document.createElement('p');
-		save.push(newParagraph, newRating);
-		window.localStorage.getItem('', JSON.stringify(save));
-		postReview.appendChild(newParagraph);
-		postReview.appendChild(newRating);
-	});
+	const newReview = document.createElement('p');
+
+	let info = {
+		review: review.value,
+		rating: rating.value,
+	};
+
+	console.log(newReview);
+	save.push(info);
+	window.localStorage.setItem('review', JSON.stringify(save));
+	newReview.innerHTML = JSON.parse(localStorage.getItem('review'));
+	postReview.appendChild(newReview);
 }
