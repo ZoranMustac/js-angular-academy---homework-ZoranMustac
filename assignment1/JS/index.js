@@ -16,10 +16,12 @@ let style = `
     text-align: left;
     padding: 1vw;
     padding-left: 2vw;
-    max-width: 30vw;
+    padding-right: 2vw;
+    max-width: 28vw;
     border-radius: 10px;
     font-size: 1vw;
     background-color: rgb(196, 54, 54);
+    word-wrap: break-word;
 `;
 
 function reviews() {
@@ -38,11 +40,6 @@ function reviews() {
 	newRating.innerHTML = info.rating;
 
 	localStorage.setItem('review', JSON.stringify(save));
-	if (localStorage.getItem('review') != null) {
-		newReview.innerHTML = info.review;
-		newRating.innerHTML = info.rating;
-	}
-
 	postReview.style = style;
 	postReview.appendChild(newReview);
 	postReview.appendChild(newRating);

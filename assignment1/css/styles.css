@@ -23,6 +23,13 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+.smallHeader{
+    margin-left: 34vw;
+    color: white;
+    font-size: 2vw;
+    font-family: 'Open Sans', sans-serif;
+}
+
 .showBox{
     display: block;
     margin-left: auto;
@@ -83,4 +90,11 @@ body{
     height: 2vw;
     font-size: 1vw;
     font-family: 'Open Sans', sans-serif;
+    color: white;
+    background-color:rgb(229, 53, 53);
+}
+
+#post:hover{
+    cursor: pointer;
+    background-color:rgb(174, 44, 44);
 }
