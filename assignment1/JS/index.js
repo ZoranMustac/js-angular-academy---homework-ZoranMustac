@@ -10,17 +10,20 @@ post.addEventListener('click', (event) => {
 
 function reviews() {
 	const postReview = document.getElementById('postReview');
-
 	const newReview = document.createElement('p');
+	const newRating = document.createElement('p');
 
 	let info = {
 		review: review.value,
 		rating: rating.value,
 	};
 
-	console.log(newReview);
 	save.push(info);
-	window.localStorage.setItem('review', JSON.stringify(save));
-	newReview.innerHTML = JSON.parse(localStorage.getItem('review'));
+
+	newReview.innerHTML = info.review;
+	newRating.innerHTML = info.rating;
+
+	localStorage.setItem('review', JSON.stringify(save));
 	postReview.appendChild(newReview);
+	postReview.appendChild(newRating);
 }
