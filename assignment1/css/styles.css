@@ -1,0 +1,100 @@
+body{
+    background-image: linear-gradient(black, rgb(178, 35, 35));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#image{
+    align-items: center;
+    max-width: 25vw;
+    max-height: 25vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2vw;
+    padding-bottom: 1vw;
+    border-radius: 30%;
+}
+
+.header{
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.smallHeader{
+    margin-left: 34vw;
+    color: white;
+    font-size: 2vw;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.showBox{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    background-color: rgb(196, 54, 54);
+    max-width: 30vw;
+    max-height: 40vw;
+    border-radius: 40px;
+    margin-bottom: 1vw;
+}
+
+.text{
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-bottom: 2vw;
+    font-size: 0.7vw;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#review{
+    display: block;
+    margin-left: 34vw;
+    margin-right: auto;
+    border: none;
+    width: 25vw;
+    height: 5vw;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    resize: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#rating{
+    display: block;
+    margin-left: 34vw;
+    margin-right: auto;
+    margin-top: 1vw;
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    max-width: 8vw;
+    max-height: 8vw;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#post{
+    display: block;
+    margin-left: 34vw;
+    margin-right: auto;
+    margin-top: 1vw;
+    border: none;
+    border-radius: 12px;
+    width: 4vw;
+    height: 2vw;
+    font-size: 1vw;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    background-color:rgb(229, 53, 53);
+}
+
+#post:hover{
+    cursor: pointer;
+    background-color:rgb(174, 44, 44);
+}
