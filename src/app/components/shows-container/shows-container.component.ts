@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Show } from '../../../show/show.model';
 
 @Component({
-	selector: 'app-shows-list',
+	selector: 'app-shows-container',
 	templateUrl: './shows-container.component.html',
 	styleUrls: ['./shows-container.component.scss'],
 })
