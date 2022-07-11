@@ -1,10 +1,10 @@
 import { IShow } from './shows-list.interface';
 
 export class Show {
-	private title: string;
-	private description: string;
-	private average_rating: number | null;
-	private image_url: string | null;
+	public title: string;
+	public description: string;
+	public average_rating: number | null;
+	public image_url: string | null;
 
 	constructor(show: IShow) {
 		this.title = show.title;
@@ -14,7 +14,7 @@ export class Show {
 	}
 }
 
-const strangerThings = new Show({
+export const strangerThings = new Show({
 	title: 'Stranger Things',
 	description:
 		'When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.',
@@ -23,7 +23,7 @@ const strangerThings = new Show({
 		'https://images.ctfassets.net/4cd45et68cgf/22eaxyrfqLTOmD0ZgFJDX0/6d7b8a0f4c3130fd87c9921cbd11d180/image5.jpg',
 });
 
-const breakingBad = new Show({
+export const breakingBad = new Show({
 	title: 'Breaking Bad',
 	description:
 		"A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
@@ -32,7 +32,7 @@ const breakingBad = new Show({
 		'https://m.media-amazon.com/images/M/MV5BODFhZjAwNjEtZDFjNi00ZTEyLThkNzUtMjZmOWM2YjQwODFmXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_FMjpg_UX1000_.jpg',
 });
 
-const gameOfThrones = new Show({
+export const gameOfThrones = new Show({
 	title: 'Game Of Thrones',
 	description:
 		'Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.',
