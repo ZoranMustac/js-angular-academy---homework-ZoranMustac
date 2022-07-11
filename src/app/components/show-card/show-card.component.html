@@ -1,5 +1,5 @@
-<mat-card *ngFor="let show of shows">
+<mat-card *ngFor="let show of shows" [ngClass]="'card-container'">
 	<mat-card-title>{{ show.title }}</mat-card-title>
-	<img mat-card-image [className]="'centerImage'" [src]="show.image_url" />
+	<img mat-card-image [ngClass]="'image'" [src]="show.image_url" />
 	<mat-card-subtitle>{{ show.average_rating }}</mat-card-subtitle>
 </mat-card>

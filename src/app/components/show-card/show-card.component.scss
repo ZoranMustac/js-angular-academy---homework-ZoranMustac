@@ -1,12 +1,10 @@
-mat-card{
+.card-container{
     border-radius: 24px;
-    width: 240px;
-    height: 300px;
+    max-width: 240px;
+    height: 350px;
 }
 
-.centerImage{
-    margin-top: 1vw;
-    margin-bottom: 1vw;
-    width: 170px;
-    height: 230px;
+.image{
+    max-width: 240px;
+    max-height: 300px;
 }
