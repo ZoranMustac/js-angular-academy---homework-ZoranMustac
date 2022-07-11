@@ -1,5 +1,10 @@
-<mat-card>
-	<mat-card-title>{{ title }}</mat-card-title>
-	<img mat-card-image src="imageUrl" alt="https://via.placeholder.com/170x230" />
-	<mat-card-subtitle>{{ rating }}</mat-card-subtitle>
+<mat-card *ngFor="let show of shows">
+	<mat-card-title>{{ show.title }}</mat-card-title>
+	<img
+		mat-card-image
+		[className]="'centerImage'"
+		src="show.image_url"
+		[isMap]="'https://via.placeholder.com/170x230'"
+	/>
+	<mat-card-subtitle>{{ show.average_rating }}</mat-card-subtitle>
 </mat-card>
