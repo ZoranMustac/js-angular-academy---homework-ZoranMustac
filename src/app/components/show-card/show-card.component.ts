@@ -7,5 +7,5 @@ import { Show } from 'src/show/show.model';
 	styleUrls: ['./show-card.component.scss'],
 })
 export class ShowCardComponent {
-	@Input() shows: Array<Show> = [];
+	@Input() show: null | Show = null;
 }

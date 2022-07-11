@@ -1,1 +1,1 @@
-<app-show-card [shows]="shows" [ngClass]="'flex-container'"></app-show-card>
+<app-show-card [show]="show" *ngFor="let show of shows"></app-show-card>
