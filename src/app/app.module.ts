@@ -8,7 +8,6 @@ import { ShowsContainerModule } from './components/shows-container/shows-contain
 @NgModule({
 	declarations: [AppComponent],
 	imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, ShowsContainerModule],
-	providers: [],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

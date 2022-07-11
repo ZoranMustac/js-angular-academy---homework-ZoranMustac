@@ -1,5 +1,6 @@
 .flex-container{
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    margin-left: 5vw;
+    justify-content: space-evenly;
 }
