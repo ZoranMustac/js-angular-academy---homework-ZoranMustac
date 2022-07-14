@@ -1,0 +1,5 @@
+<mat-card *ngIf="show !== null" [ngClass]="'card-container'">
+	<mat-card-title>{{ show.title }}</mat-card-title>
+	<img mat-card-image [ngClass]="'image'" [src]="show.image_url" />
+	<mat-card-subtitle>{{ show.averageRating ?? 'No rating' }}</mat-card-subtitle>
+</mat-card>

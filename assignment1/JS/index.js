@@ -1,14 +1,9 @@
 const review = document.getElementById('review');
 const rating = document.getElementById('rating');
 const post = document.getElementById('post');
-const save = [];
+const reviews = JSON.parse(localStorage.getItem('review')) || [];
 
-post.addEventListener('click', (event) => {
-	event.preventDefault();
-	reviews();
-});
-
-let style = `
+const style = `
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -24,23 +19,36 @@ let style = `
     word-wrap: break-word;
 `;
 
-function reviews() {
-	const postReview = document.getElementById('postReview');
-	const newReview = document.createElement('p');
-	const newRating = document.createElement('p');
+renderReviews();
 
+post.addEventListener('click', (event) => {
+	event.preventDefault();
+	addReview();
+	renderReviews();
+});
+
+function addReview() {
 	let info = {
 		review: review.value,
 		rating: rating.value,
 	};
 
-	save.push(info);
+	reviews.push(info);
 
-	newReview.innerHTML = info.review;
-	newRating.innerHTML = info.rating;
+	localStorage.setItem('review', JSON.stringify(reviews));
+}
 
-	localStorage.setItem('review', JSON.stringify(save));
-	postReview.style = style;
-	postReview.appendChild(newReview);
-	postReview.appendChild(newRating);
+function renderReviews() {
+	reviews.forEach((review) => {
+		const postReview = document.getElementById('postReview');
+		const newReview = document.createElement('p');
+		const newRating = document.createElement('p');
+
+		newReview.innerHTML = review.review;
+		newRating.innerHTML = review.rating;
+
+		postReview.style = style;
+		postReview.appendChild(newReview);
+		postReview.appendChild(newRating);
+	});
 }
