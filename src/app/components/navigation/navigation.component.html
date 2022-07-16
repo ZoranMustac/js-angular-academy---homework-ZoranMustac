@@ -1,0 +1,20 @@
+<mat-sidenav-container>
+	<mat-sidenav mode="side" opened="true">
+		<h1>Shows</h1>
+		<mat-nav-list>
+			<mat-button *ngFor="let navigation of navigationLinks" [routerLink]="navigation.url">
+				<mat-list-item
+					class="button-item"
+					[routerLinkActive]="'currentPage'"
+					[routerLinkActiveOptions]="{ exact: true }"
+				>
+					{{ navigation.title }}
+				</mat-list-item>
+			</mat-button>
+		</mat-nav-list>
+	</mat-sidenav>
+
+	<div>
+		<router-outlet></router-outlet>
+	</div>
+</mat-sidenav-container>
