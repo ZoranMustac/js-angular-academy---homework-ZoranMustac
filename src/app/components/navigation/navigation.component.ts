@@ -17,7 +17,7 @@ export class NavigationComponent {
 			title: 'Top Rated Shows',
 		},
 		{
-			url: 'show-details',
+			url: 'show-details/:id',
 			title: 'Show Details',
 		},
 	];

@@ -19,7 +19,7 @@ const routes: Routes = [
 				component: TopRatedShowsComponent,
 			},
 			{
-				path: 'show-details',
+				path: 'show-details/:id',
 				component: ShowDetailsComponent,
 			},
 		],

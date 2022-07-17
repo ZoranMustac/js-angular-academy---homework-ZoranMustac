@@ -5,7 +5,7 @@
 			<mat-button *ngFor="let navigation of navigationLinks" [routerLink]="navigation.url">
 				<mat-list-item
 					class="button-item"
-					[routerLinkActive]="'currentPage'"
+					[routerLinkActive]="'active'"
 					[routerLinkActiveOptions]="{ exact: true }"
 				>
 					{{ navigation.title }}
