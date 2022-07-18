@@ -1,1 +1,6 @@
-<p>show-details works!</p>
+<mat-card *ngFor="let show of shows">
+	<mat-card-title>{{ show.title }}</mat-card-title>
+	<img mat-card-image class="image" [src]="show.imageUrl" />
+	<mat-card-subtitle>{{ show.averageRating ?? 'No rating' }}</mat-card-subtitle>
+	<mat-card-content>{{ show.description }}</mat-card-content>
+</mat-card>

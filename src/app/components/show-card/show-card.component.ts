@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Show } from 'src/show/show.model';
 
 @Component({
@@ -7,5 +7,5 @@ import { Show } from 'src/show/show.model';
 	styleUrls: ['./show-card.component.scss'],
 })
 export class ShowCardComponent {
-	@Input() show: null | Show = null;
+	@Input() shows: null | Show = null;
 }

@@ -7,9 +7,14 @@ import { IShow } from 'src/show/shows-list.interface';
 	selector: 'app-all-shows',
 	templateUrl: './all-shows.component.html',
 	styleUrls: ['./all-shows.component.scss'],
+	providers: [ShowService],
 })
 export class AllShowsComponent {
-	public shows: Array<Show> = this.showService.shows;
+	public shows: Array<Show> = this.showService.fetchAll();
 
 	constructor(private readonly showService: ShowService) {}
+
+	public FetchOnClickDeatilsShow(show: Show) {
+		this.showService.fetchDetailsShow(show);
+	}
 }
