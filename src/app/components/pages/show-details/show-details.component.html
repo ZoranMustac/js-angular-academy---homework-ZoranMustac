@@ -1,6 +1,10 @@
-<mat-card *ngFor="let show of shows">
-	<mat-card-title>{{ show.title }}</mat-card-title>
-	<img mat-card-image class="image" [src]="show.imageUrl" />
-	<mat-card-subtitle>{{ show.averageRating ?? 'No rating' }}</mat-card-subtitle>
-	<mat-card-content>{{ show.description }}</mat-card-content>
-</mat-card>
+<div class="card-size">
+	<mat-card *ngIf="show">
+		<mat-card-title-group>
+			<img mat-card-image class="image" [src]="show.imageUrl" />
+			<mat-card-title>{{ show.title }}</mat-card-title>
+			<mat-card-subtitle>{{ show.averageRating ?? 'No rating' }}</mat-card-subtitle>
+		</mat-card-title-group>
+		<mat-card-content>{{ show.description }}</mat-card-content>
+	</mat-card>
+</div>

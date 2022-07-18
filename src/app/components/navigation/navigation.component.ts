@@ -11,14 +11,17 @@ export class NavigationComponent {
 		{
 			url: '',
 			title: 'All Shows',
+			exact: true,
 		},
 		{
 			url: 'top-rated-shows',
 			title: 'Top Rated Shows',
+			exact: false,
 		},
 		{
-			url: 'show-details/:id',
+			url: 'show-details',
 			title: 'Show Details',
+			exact: false,
 		},
 	];
 }

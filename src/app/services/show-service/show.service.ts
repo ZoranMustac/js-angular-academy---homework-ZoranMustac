@@ -1,6 +1,5 @@
-import { EventEmitter, Injectable, Input } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Show } from 'src/show/show.model';
-import { IShow } from 'src/show/shows-list.interface';
 
 @Injectable({
 	providedIn: 'root',
@@ -55,7 +54,7 @@ export class ShowService {
 			description:
 				'New Jersey mob boss Tony Soprano deals with personal and professional issues in his home and business life that affect his mental state, leading him to seek professional psychiatric counseling.',
 			averageRating: 9.2,
-			imageUrl: 'https://www.tvguide.com/a/img/catalog/provider/1/1/1-1487303638.jpg',
+			imageUrl: 'https://images.justwatch.com/poster/9077158/s718/the-sopranos.%7Bformat%7D',
 		},
 		{
 			id: 6,
@@ -76,25 +75,19 @@ export class ShowService {
 	];
 
 	public fetchAll() {
-		this.shows.map((obj) => obj.id);
-
 		return this.shows;
 	}
 
 	public fetchTopRated() {
-		this.shows.forEach((obj) => {
-			let rating = obj.averageRating;
-			if (rating !== null && rating >= 8 && rating !== 0) {
-				this.shows.push(obj);
-			}
+		return this.shows.filter((show) => {
+			let rating = show.averageRating;
+			return rating !== (null || 0) && rating >= 8;
 		});
-
-		return this.shows;
 	}
 
-	public OnClickDetails = new EventEmitter<Show>();
-
-	public fetchDetailsShow(show: Show) {
-		this.OnClickDetails.emit(show);
+	public fetchById(id: number): Show | undefined {
+		return this.shows.find((show) => {
+			return show.id === id;
+		});
 	}
 }

@@ -13,8 +13,4 @@ export class AllShowsComponent {
 	public shows: Array<Show> = this.showService.fetchAll();
 
 	constructor(private readonly showService: ShowService) {}
-
-	public FetchOnClickDeatilsShow(show: Show) {
-		this.showService.fetchDetailsShow(show);
-	}
 }

@@ -11,13 +11,5 @@ import { Show } from 'src/show/show.model';
 export class ShowDetailsComponent {
 	constructor(private readonly showService: ShowService, private route: ActivatedRoute) {}
 
-	public shows: Array<Show> = [
-		{
-			id: this.route.snapshot.params['id'],
-			title: this.route.snapshot.params['title'],
-			description: this.route.snapshot.params['description'],
-			averageRating: this.route.snapshot.params['averageRating'],
-			imageUrl: this.route.snapshot.params['imageUrl'],
-		},
-	];
+	public show: Show | undefined = this.showService.fetchById(parseInt(this.route.snapshot.params['id']));
 }
