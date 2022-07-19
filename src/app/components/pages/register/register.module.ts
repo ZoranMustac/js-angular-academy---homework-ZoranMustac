@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
 	declarations: [RegisterComponent],
@@ -18,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
 		AuthFormModule,
 		RouterModule,
 		MatButtonModule,
+		MatIconModule,
 	],
 	exports: [RegisterComponent],
 })
