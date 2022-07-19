@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavigationModule } from '../../navigation/navigation.module';
+import { NavigationModule } from '../../layouts/navigation/navigation.module';
 import { RouterModule } from '@angular/router';
 import { AllShowsComponent } from './all-shows.component';
 import { ShowsListModule } from '../../shows-list/shows-list.module';
