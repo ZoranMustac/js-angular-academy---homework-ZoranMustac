@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="form">
 	<mat-card>
 		<mat-card-title>Register</mat-card-title>
 
@@ -7,13 +7,13 @@
 		<mat-form-field appearance="fill">
 			<mat-icon aria-hidden="false" aria-label="Person icon" matPrefix>lock</mat-icon>
 			<mat-label>Confirm Password</mat-label>
-			<input matInput type="password" placeholder="Confirm Password" formControlName="password" />
+			<input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
 		</mat-form-field>
 
 		<p>Already have an account? <a [routerLink]="'/login'">Login</a></p>
 
 		<mat-card-actions>
-			<button mat-flat-button [disabled]="form.invalid">Register</button>
+			<button mat-flat-button [disabled]="form.invalid" (click)="onRegisterClick($event)">Register</button>
 		</mat-card-actions>
 	</mat-card>
 </form>

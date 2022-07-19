@@ -7,7 +7,7 @@
 		<p>Don't have an account? <a [routerLink]="'/register'">Register</a></p>
 
 		<mat-card-actions>
-			<button mat-flat-button [disabled]="form.invalid">Login</button>
+			<button mat-flat-button [disabled]="form.invalid" (click)="onLoginClick($event)">Login</button>
 		</mat-card-actions>
 	</mat-card>
 </form>

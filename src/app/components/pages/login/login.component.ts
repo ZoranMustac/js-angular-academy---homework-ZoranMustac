@@ -11,4 +11,10 @@ export class LoginComponent {
 		email: new FormControl('', [Validators.required, Validators.email]),
 		password: new FormControl('', [Validators.required, Validators.minLength(8)]),
 	});
+
+	public onLoginClick(event: Event) {
+		event.preventDefault();
+		console.log(this.form.controls.email.value);
+		console.log(this.form.controls.password.value);
+	}
 }
