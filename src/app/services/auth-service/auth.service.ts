@@ -12,11 +12,9 @@ export class AuthService {
 
 	public register(data: IAuthFormData): Observable<IUser> {
 		return this.http.post<IUser>('https://tv-shows.infinum.academy/users', data);
-		console.log(data);
 	}
 
 	public logIn(data: IAuthFormData): Observable<IUser> {
 		return this.http.post<IUser>('https://tv-shows.infinum.academy/users/sign_in', data);
-		console.log(data);
 	}
 }

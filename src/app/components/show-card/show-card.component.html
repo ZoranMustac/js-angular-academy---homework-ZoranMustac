@@ -1,4 +1,4 @@
-<a *ngIf="shows !== null" [routerLink]="['/', 'show-details', shows.id]">
+<a *ngIf="shows !== null" [routerLink]="['/', 'show-details', shows.id]" class="underline">
 	<mat-card class="card-container">
 		<mat-card-title>{{ shows.title }}</mat-card-title>
 		<img mat-card-image class="image" [src]="shows.imageUrl" />
