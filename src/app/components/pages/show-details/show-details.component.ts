@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ShowService } from 'src/app/services/show-service/show.service';
 import { Show } from 'src/show/show.model';
 
@@ -11,5 +12,5 @@ import { Show } from 'src/show/show.model';
 export class ShowDetailsComponent {
 	constructor(private readonly showService: ShowService, private route: ActivatedRoute) {}
 
-	public show: Show | undefined = this.showService.fetchById(parseInt(this.route.snapshot.params['id']));
+	public show$ = this.showService.fetchById(parseInt(this.route.snapshot.params['id']));
 }

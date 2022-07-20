@@ -8,7 +8,7 @@ import { Show } from 'src/show/show.model';
 	styleUrls: ['./top-rated-shows.component.scss'],
 })
 export class TopRatedShowsComponent {
-	public shows: Array<Show> = this.showService.fetchTopRated();
+	public shows$ = this.showService.fetchTopRated();
 
 	constructor(private readonly showService: ShowService) {}
 }

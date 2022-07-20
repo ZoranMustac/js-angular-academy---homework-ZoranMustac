@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth-service/auth.service';
+import { IAuthFormData } from 'src/show/auth-form-data.interface';
 
 @Component({
 	selector: 'app-register',
@@ -18,6 +21,8 @@ export class RegisterComponent {
 		},
 	);
 
+	constructor(private readonly authService: AuthService, private readonly router: Router) {}
+
 	private validateConfirmPassword(passwordValue: string, confirmPasswordValue: string): ValidatorFn {
 		return (control: AbstractControl): ValidationErrors | null => {
 			const form = control as FormGroup;
@@ -30,8 +35,14 @@ export class RegisterComponent {
 
 	public onRegisterClick(event: Event) {
 		event.preventDefault();
-		console.log(this.form.controls.email.value);
-		console.log(this.form.controls.password.value);
-		console.log(this.form.controls.confirmPassword.value);
+		this.authService
+			.register({
+				email: this.form.controls.email.value,
+				password: this.form.controls.password.value,
+				confirmPassword: this.form.controls.confirmPassword.value,
+			} as IAuthFormData)
+			.subscribe(() => {
+				this.router.navigate(['']);
+			});
 	}
 }

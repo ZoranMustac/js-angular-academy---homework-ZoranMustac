@@ -9,12 +9,12 @@ import { TopRatedShowsModule } from './components/pages/top-rated-shows/top-rate
 import { ShowDetailsModule } from './components/pages/show-details/show-details.module';
 import { RegisterModule } from './components/pages/register/register.module';
 import { LoginModule } from './components/pages/login/login.module';
-import { AuthLayoutComponent } from './components/layouts/auth-layout/auth-layout.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthLayoutModule } from './components/layouts/auth-layout/auth-layout.module';
 
 @NgModule({
-	declarations: [AppComponent, AuthLayoutComponent],
+	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 		LoginModule,
 		ReactiveFormsModule,
 		HttpClientModule,
+		AuthLayoutModule,
 	],
 	bootstrap: [AppComponent],
 })

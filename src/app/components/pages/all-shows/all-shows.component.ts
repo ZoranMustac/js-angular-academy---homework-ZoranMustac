@@ -10,7 +10,7 @@ import { IShow } from 'src/show/shows-list.interface';
 	providers: [ShowService],
 })
 export class AllShowsComponent {
-	public shows: Array<Show> = this.showService.fetchAll();
+	public shows$ = this.showService.fetchAll();
 
 	constructor(private readonly showService: ShowService) {}
 }

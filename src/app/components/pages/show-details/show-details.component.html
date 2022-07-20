@@ -1,5 +1,5 @@
 <div class="card-size">
-	<mat-card *ngIf="show">
+	<mat-card *ngIf="show$ | async as show">
 		<mat-card-title-group>
 			<img mat-card-image class="image" [src]="show.imageUrl" />
 			<mat-card-title>{{ show.title }}</mat-card-title>

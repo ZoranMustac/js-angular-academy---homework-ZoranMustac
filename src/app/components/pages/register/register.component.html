@@ -4,7 +4,7 @@
 
 		<app-auth-form [form]="form"></app-auth-form>
 
-		<mat-form-field appearance="fill">
+		<mat-form-field appearance="outline">
 			<mat-icon aria-hidden="false" aria-label="Person icon" matPrefix>lock</mat-icon>
 			<mat-label>Confirm Password</mat-label>
 			<input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
@@ -13,7 +13,9 @@
 		<p>Already have an account? <a [routerLink]="'/login'">Login</a></p>
 
 		<mat-card-actions>
-			<button mat-flat-button [disabled]="form.invalid" (click)="onRegisterClick($event)">Register</button>
+			<button mat-stroked-button [disabled]="form.invalid" appearance="outline" (click)="onRegisterClick($event)">
+				Register
+			</button>
 		</mat-card-actions>
 	</mat-card>
 </form>
