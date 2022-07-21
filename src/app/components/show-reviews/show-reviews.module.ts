@@ -5,10 +5,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TextFieldModule } from '@angular/cdk/text-field';
 
 @NgModule({
 	declarations: [ShowReviewsComponent],
-	imports: [CommonModule, MatFormFieldModule, MatCardModule, MatInputModule, MatButtonModule],
+	imports: [
+		CommonModule,
+		MatFormFieldModule,
+		MatCardModule,
+		MatInputModule,
+		MatButtonModule,
+		ReactiveFormsModule,
+		TextFieldModule,
+	],
 	exports: [ShowReviewsComponent],
 })
 export class ShowReviewsModule {}
