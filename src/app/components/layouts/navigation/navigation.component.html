@@ -1,14 +1,16 @@
 <mat-sidenav-container>
 	<mat-sidenav mode="side" opened="true">
 		<h1 class="header">Shows</h1>
-		<mat-nav-list>
-			<mat-button *ngFor="let navigation of navigationLinks" [routerLink]="navigation.url">
+		<mat-nav-list *ngFor="let navigation of navigationLinks; let last = last" [ngClass]="{ last: last }">
+			<mat-button [routerLink]="navigation.url">
 				<mat-list-item
 					class="button-item"
 					[routerLinkActive]="'active'"
 					[routerLinkActiveOptions]="{ exact: navigation.exact }"
 				>
-					{{ navigation.title }}
+					<div class="buttons">
+						{{ navigation.title }}
+					</div>
 				</mat-list-item>
 			</mat-button>
 		</mat-nav-list>

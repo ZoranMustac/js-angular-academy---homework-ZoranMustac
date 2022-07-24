@@ -14,8 +14,8 @@ h1{
 }
 
 .button-item{
-    margin-top: 2vw;
-    margin-bottom: 2vw;
+    margin-top: 2px;
+    margin-bottom: 2px;
     padding-left: 10vw;
 }
 
@@ -25,4 +25,10 @@ h1{
 
 .header{
     margin-top: 2vw;
+}
+
+.last{
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }

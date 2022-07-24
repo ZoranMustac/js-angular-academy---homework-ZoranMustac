@@ -3,4 +3,5 @@ export interface IShowReview {
 	show_id: number;
 	comment: string;
 	rating: number;
+	email?: string;
 }

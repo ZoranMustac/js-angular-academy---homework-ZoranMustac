@@ -44,5 +44,7 @@ export class RegisterComponent {
 			.subscribe(() => {
 				this.router.navigate(['']);
 			});
+
+		localStorage.setItem('data', JSON.stringify(this.form.controls.email.value));
 	}
 }

@@ -9,26 +9,7 @@ export class ShowReviewsService {
 	private reviews$: BehaviorSubject<Array<IShowReview>>;
 
 	constructor() {
-		this.reviews$ = new BehaviorSubject<Array<IShowReview>>([
-			{
-				id: 10,
-				show_id: 1,
-				comment: 'Great show',
-				rating: 9.2,
-			},
-			{
-				id: 11,
-				show_id: 6,
-				comment: 'Great show',
-				rating: 9.2,
-			},
-			{
-				id: 12,
-				show_id: 5,
-				comment: 'Great show',
-				rating: 9.2,
-			},
-		]);
+		this.reviews$ = new BehaviorSubject<Array<IShowReview>>([]);
 	}
 
 	public getReviews(show_id: number): Observable<Array<IShowReview>> {

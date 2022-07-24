@@ -22,6 +22,6 @@
 
 	<mat-card *ngFor="let showReview of showReviews$ | async" class="space">
 		<mat-card-content>{{ showReview.comment }}</mat-card-content>
-		<mat-card-subtitle>{{ showReview.rating }}</mat-card-subtitle>
+		<mat-card-subtitle type="number">{{ showReview.rating }}</mat-card-subtitle>
 	</mat-card>
 </div>

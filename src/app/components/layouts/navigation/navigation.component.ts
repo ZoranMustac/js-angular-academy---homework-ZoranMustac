@@ -15,12 +15,17 @@ export class NavigationComponent {
 		},
 		{
 			url: 'top-rated-shows',
-			title: 'Top Rated Shows',
+			title: 'Top Rated',
 			exact: false,
 		},
 		{
-			url: 'show-details',
-			title: 'Show Details',
+			url: 'profile',
+			title: 'My Profile',
+			exact: false,
+		},
+		{
+			url: 'login',
+			title: 'Log out',
 			exact: false,
 		},
 	];
