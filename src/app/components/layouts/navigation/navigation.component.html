@@ -1,5 +1,11 @@
 <mat-sidenav-container>
-	<mat-sidenav mode="side" opened="true">
+	<button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+		<mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+	</button>
+	<mat-sidenav class="container" mode="side" opened="true" #sidenav="matSidenav">
+		<button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+			<mat-icon *ngIf="sidenav.opened">close</mat-icon>
+		</button>
 		<h1 class="header">Shows</h1>
 		<mat-nav-list *ngFor="let navigation of navigationLinks; let last = last" [ngClass]="{ last: last }">
 			<mat-button [routerLink]="navigation.url">
