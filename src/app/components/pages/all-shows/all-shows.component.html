@@ -1,0 +1,4 @@
+<div class="add-space" *ngIf="shows$ | async as shows">
+	<app-shows-list [shows]="shows" class="container"></app-shows-list>
+</div>
+<router-outlet></router-outlet>

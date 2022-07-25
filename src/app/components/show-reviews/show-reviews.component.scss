@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vw;
+}
+
+.textarea{
+    max-width: 38vw;
+}
+
+.rating{
+    max-width: 13vw;
+}
+
+.submit-button{
+    width: 8vw;
+    height: 2vw;
+    text-align: center;
+    margin-bottom: 4vw;
+    font-size: 0.8vw;
+}
+
+.space{
+    margin-bottom: 2vw;
+}

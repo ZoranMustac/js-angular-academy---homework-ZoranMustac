@@ -1,0 +1,27 @@
+<div class="container" [formGroup]="reviewFormGroup">
+	<mat-form-field appearance="outline" class="textarea">
+		<mat-label>Leave a review</mat-label>
+		<textarea
+			matInput
+			formControlName="comment"
+			cdkTextareaAutosize
+			#autosize="cdkTextareaAutosize"
+			cdkAutosizeMinRows="5"
+			cdkAutosizeMaxRows="10"
+		></textarea>
+	</mat-form-field>
+
+	<mat-form-field appearance="outline" class="rating">
+		<mat-label>Rating</mat-label>
+		<input matInput placeholder="Ex. 8.6/10" formControlName="rating" />
+	</mat-form-field>
+
+	<button mat-raised-button class="submit-button" [disabled]="reviewFormGroup.invalid" (click)="addReview()">
+		Submit Review
+	</button>
+
+	<mat-card *ngFor="let showReview of showReviews$ | async" class="space">
+		<mat-card-content>{{ showReview.comment }}</mat-card-content>
+		<mat-card-subtitle>{{ showReview.rating }}</mat-card-subtitle>
+	</mat-card>
+</div>
