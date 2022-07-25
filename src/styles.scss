@@ -20,11 +20,8 @@
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
 @import "@angular/material/theming";
+@import "./variables";
 
-$light-purple: #8d5ce5;
-$purple: #371687;
-$dark-purple: #1b004c;
-$error: #ff2498;
 
 $typography-config: mat.define-typography-config(
   $headline: mat.define-typography-level(40px, 52px, 700),
@@ -177,52 +174,7 @@ $warn: mat-palette($warn-color-palette, 400);
   )
 );
 
-.shows-app {
-  .mat-raised-button.mat-primary {
-    color: $purple;
-    border-radius: 32px;
-    padding: 20px 40px;
-    max-height: 52px;
-    text-transform: uppercase;
-    line-height: 14px;
 
-    &.mat-button-disabled {
-      background-color: rgba($color: #ffffff, $alpha: 0.4);
-    }
-  }
-
-  .mat-form-field-appearance-outline .mat-form-field-outline-thick {
-    opacity: 1;
-  }
-
-  .mat-form-field-label {
-    color: white;
-  }
-
-  .mat-form-field-appearance-outline .mat-form-field-outline-start {
-    border-radius: 30px 0 0 30px;
-  }
-
-  .mat-form-field-appearance-outline .mat-form-field-outline-end {
-    border-radius: 0 30px 30px 0;
-  }
-
-  .mat-drawer-side {
-    border: none;
-  }
-
-  .mat-drawer-backdrop.mat-drawer-shown {
-    background-color: rgba($color: #000000, $alpha: 0.4);
-  }
-
-  .mat-form-field-prefix {
-    margin-right: 8px;
-  }
-
-  .mat-form-field-appearance-outline .mat-form-field-flex {
-    padding: 0 28px;
-  }
-}
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -237,10 +189,55 @@ body {
 }
 body {
 	margin: 0;
-	font-family: Roboto, 'Helvetica Neue', sans-serif;
+	//font-family: Roboto, 'Helvetica Neue', sans-serif;
 	background-color: $dark-purple;
 }
 
-
+.shows-app {
+	.mat-raised-button.mat-primary {
+	  color: $purple;
+	  border-radius: 32px;
+	  padding: 20px 40px;
+	  max-height: 52px;
+	  text-transform: uppercase;
+	  line-height: 14px;
+  
+	  &.mat-button-disabled {
+		background-color: rgba($color: #ffffff, $alpha: 0.4);
+	  }
+	}
+  
+	.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+	  opacity: 1;
+	}
+  
+	.mat-form-field-label {
+	  color: white;
+	}
+  
+	.mat-form-field-appearance-outline .mat-form-field-outline-start {
+	  border-radius: 30px 0 0 30px;
+	}
+  
+	.mat-form-field-appearance-outline .mat-form-field-outline-end {
+	  border-radius: 0 30px 30px 0;
+	}
+  
+	.mat-drawer-side {
+	  border: none;
+	}
+  
+	.mat-drawer-backdrop.mat-drawer-shown {
+	  background-color: rgba($color: #000000, $alpha: 0.4);
+	}
+  
+	.mat-form-field-prefix {
+	  margin-right: 8px;
+	}
+  
+	.mat-form-field-appearance-outline .mat-form-field-flex {
+	  padding: 0 28px;
+	}
+  }
 
 

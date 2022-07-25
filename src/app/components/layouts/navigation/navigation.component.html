@@ -1,12 +1,15 @@
-<mat-sidenav-container class="mat-drawer-side">
-	<button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-		<mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
-	</button>
+<mat-sidenav-container>
+	<div class="menu-image">
+		<button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+			<mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+		</button>
+		<img src="assets/logo.svg" class="display-resize" />
+	</div>
 	<mat-sidenav class="container" mode="side" opened="true" #sidenav="matSidenav">
 		<button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
 			<mat-icon *ngIf="sidenav.opened">close</mat-icon>
 		</button>
-
+		<img src="assets/logo.svg" class="display" />
 		<mat-nav-list *ngFor="let navigation of navigationLinks; let last = last" [ngClass]="{ last: last }">
 			<mat-button [routerLink]="navigation.url">
 				<mat-list-item [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: navigation.exact }">
