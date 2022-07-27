@@ -10,6 +10,7 @@
 			<mat-icon *ngIf="sidenav.opened">close</mat-icon>
 		</button>
 		<img src="assets/logo.svg" class="display" />
+
 		<mat-nav-list *ngFor="let navigation of navigationLinks; let last = last" [ngClass]="{ last: last }">
 			<mat-button [routerLink]="navigation.url">
 				<mat-list-item [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: navigation.exact }">
@@ -22,6 +23,7 @@
 	</mat-sidenav>
 
 	<div>
+		<h1 *ngIf="user$ | async as user">{{ user.email }}</h1>
 		<router-outlet></router-outlet>
 	</div>
 </mat-sidenav-container>

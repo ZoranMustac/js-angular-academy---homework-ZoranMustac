@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthLayoutModule } from './components/layouts/auth-layout/auth-layout.module';
 import { ProfileModule } from './components/pages/profile/profile.module';
+import { AuthService } from './services/auth-service/auth.service';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -30,6 +31,16 @@ import { ProfileModule } from './components/pages/profile/profile.module';
 		HttpClientModule,
 		AuthLayoutModule,
 		ProfileModule,
+	],
+	providers: [
+		{
+			provide: APP_INITIALIZER,
+			multi: true,
+			useFactory: (authService: AuthService) => {
+				return () => authService.init();
+			},
+			deps: [AuthService],
+		},
 	],
 	bootstrap: [AppComponent],
 })
