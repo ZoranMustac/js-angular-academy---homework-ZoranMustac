@@ -10,10 +10,11 @@ import { ShowDetailsModule } from './components/pages/show-details/show-details.
 import { RegisterModule } from './components/pages/register/register.module';
 import { LoginModule } from './components/pages/login/login.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthLayoutModule } from './components/layouts/auth-layout/auth-layout.module';
 import { ProfileModule } from './components/pages/profile/profile.module';
 import { AuthService } from './services/auth-service/auth.service';
+import { HeadersInterceptor } from './interceptors/headers.interceptor';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -33,6 +34,11 @@ import { AuthService } from './services/auth-service/auth.service';
 		ProfileModule,
 	],
 	providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			multi: true,
+			useClass: HeadersInterceptor,
+		},
 		{
 			provide: APP_INITIALIZER,
 			multi: true,

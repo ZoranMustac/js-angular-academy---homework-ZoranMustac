@@ -13,9 +13,7 @@ export class AuthService {
 	constructor(private readonly http: HttpClient) {}
 
 	public init(): Observable<IUser> {
-		if (!localStorage.getItem('token')) {
-			return EMPTY;
-		}
+		if (!localStorage.getItem('token')) return EMPTY;
 
 		return this.http
 			.get<IUser>('https://tv-shows.infinum.academy/users/me', {
@@ -37,8 +35,17 @@ export class AuthService {
 			);
 	}
 
-	public register(data: IAuthFormData): Observable<IUser> {
-		return this.http.post<IUser>('https://tv-shows.infinum.academy/users', data);
+	public register(data: IAuthFormData): Observable<HttpResponse<IUser>> {
+		return this.http.post<IUser>('https://tv-shows.infinum.academy/users', data, { observe: 'response' }).pipe(
+			tap((response) => {
+				this._user$.next(response.body);
+				localStorage.setItem('token', response.headers.get('access-token') || '');
+				localStorage.setItem('token-type', response.headers.get('token-type') || '');
+				localStorage.setItem('uid', response.headers.get('uid') || '');
+				localStorage.setItem('expiry', response.headers.get('expiry') || '');
+				localStorage.setItem('client', response.headers.get('client') || '');
+			}),
+		);
 	}
 
 	public login(data: IAuthFormData): Observable<HttpResponse<IUser>> {
