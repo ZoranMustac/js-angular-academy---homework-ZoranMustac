@@ -49,30 +49,21 @@ export class ShowService {
 			.pipe(
 				map((showsResponse) => {
 					return showsResponse.shows.map((show) => {
-						let rating = show.average_rating;
-						return rating !== (null && 0) && rating >= 3
-							? new Show(show)
-							: {
-									id: 0,
-									title: '',
-									description: '',
-									imageUrl: '',
-									averageRating: 0,
-							  };
+						return new Show(show);
 					});
 				}),
 			);
 	}
 
 	public fetchById(id: number): Observable<Show | undefined> {
-		return this.shows$.pipe(
+		/*return this.shows$.pipe(
 			map((shows) => {
 				return shows.find((show) => {
 					return show.id === id;
 				});
 			}),
-		);
-		/*
+		);*/
+
 		return this.http
 			.get<IShowsResponse>(`https://tv-shows.infinum.academy/shows/${id}`, {
 				headers: {
@@ -86,9 +77,9 @@ export class ShowService {
 			.pipe(
 				map((showsResponse) => {
 					return showsResponse.shows.map((show) => {
-						return new Show(show);
+						return show.id === id;
 					});
 				}),
-			);*/
+			);
 	}
 }
