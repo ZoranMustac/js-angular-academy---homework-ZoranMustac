@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { INavigationLink } from 'src/show/navigation-links.interface';
 import { BreakpointObserver } from '@angular/cdk/layout';
@@ -9,13 +9,13 @@ import { AuthService } from 'src/app/services/auth-service/auth.service';
 	templateUrl: './navigation.component.html',
 	styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent {
-	@ViewChild(MatSidenav) sidenav!: MatSidenav;
+export class NavigationComponent implements OnInit {
+	@ViewChild(MatSidenav, { static: true }) sidenav!: MatSidenav;
 	public readonly user$ = this.authService.user$;
 
 	constructor(private observe: BreakpointObserver, private readonly authService: AuthService) {}
 
-	ngAfterViewInit() {
+	ngOnInit() {
 		this.observe.observe(['(max-width: 900px)']).subscribe((response) => {
 			if (response.matches) {
 				this.sidenav.mode = 'over';

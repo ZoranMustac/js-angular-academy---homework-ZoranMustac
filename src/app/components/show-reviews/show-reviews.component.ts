@@ -12,7 +12,7 @@ import { Show } from 'src/show/show.model';
 })
 export class ShowReviewsComponent implements OnInit {
 	@Input() show!: Show;
-	public email = localStorage.getItem('data');
+	public email = localStorage.getItem('uid');
 	public showReviews$!: Observable<Array<IShowReview>>;
 	public reviewFormGroup = new FormGroup({
 		comment: new FormControl('', Validators.required),

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Show } from 'src/show/show.model';
 import { IShow } from 'src/show/shows-list.interface';
+import { IShowsResponse } from 'src/show/shows-response.interface';
 
 @Injectable({
 	providedIn: 'root',
@@ -84,18 +85,52 @@ export class ShowService {
 	}
 
 	public fetchAll(): Observable<Array<Show>> {
-		return this.shows$.asObservable();
+		return this.http
+			.get<IShowsResponse>('https://tv-shows.infinum.academy/shows', {
+				headers: {
+					'access-token': localStorage.getItem('token') || '',
+					'token-type': localStorage.getItem('token-type') || '',
+					uid: localStorage.getItem('uid') || '',
+					expiry: localStorage.getItem('expiry') || '',
+					client: localStorage.getItem('client') || '',
+				},
+			})
+			.pipe(
+				map((showsResponse) => {
+					return showsResponse.shows.map((show) => {
+						return new Show(show);
+					});
+				}),
+			);
 	}
 
 	public fetchTopRated(): Observable<Array<Show>> {
-		return this.shows$.pipe(
+		/*return this.shows$.pipe(
 			map((shows) => {
 				return shows.filter((show) => {
 					let rating = show.averageRating;
 					return rating !== null && rating >= 8 && rating !== 0;
 				});
 			}),
-		);
+		);*/
+
+		return this.http
+			.get<IShowsResponse>('https://tv-shows.infinum.academy/shows/top_rated', {
+				headers: {
+					'access-token': localStorage.getItem('token') || '',
+					'token-type': localStorage.getItem('token-type') || '',
+					uid: localStorage.getItem('uid') || '',
+					expiry: localStorage.getItem('expiry') || '',
+					client: localStorage.getItem('client') || '',
+				},
+			})
+			.pipe(
+				map((showsResponse) => {
+					return showsResponse.shows.map((show) => {
+						return new Show(show);
+					});
+				}),
+			);
 	}
 
 	public fetchById(id: number): Observable<Show | undefined> {
@@ -106,5 +141,23 @@ export class ShowService {
 				});
 			}),
 		);
+
+		/*return this.http
+			.get<IShowsResponse>(`https://tv-shows.infinum.academy/${id}`, {
+				headers: {
+					'access-token': localStorage.getItem('token') || '',
+					'token-type': localStorage.getItem('token-type') || '',
+					uid: localStorage.getItem('uid') || '',
+					expiry: localStorage.getItem('expiry') || '',
+					client: localStorage.getItem('client') || '',
+				},
+			})
+			.pipe(
+				map((showsResponse) => {
+					return showsResponse.shows.map((show) => {
+						return new Show(show);
+					});
+				}),
+			);*/
 	}
 }
