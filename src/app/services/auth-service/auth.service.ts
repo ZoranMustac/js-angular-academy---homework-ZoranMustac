@@ -15,24 +15,14 @@ export class AuthService {
 	public init(): Observable<IUser> {
 		if (!localStorage.getItem('token')) return EMPTY;
 
-		return this.http
-			.get<IUser>('https://tv-shows.infinum.academy/users/me', {
-				headers: {
-					'access-token': localStorage.getItem('token') || '',
-					'token-type': localStorage.getItem('token-type') || '',
-					uid: localStorage.getItem('uid') || '',
-					expiry: localStorage.getItem('expiry') || '',
-					client: localStorage.getItem('client') || '',
-				},
-			})
-			.pipe(
-				catchError(() => {
-					return EMPTY;
-				}),
-				tap((user) => {
-					this._user$.next(user);
-				}),
-			);
+		return this.http.get<IUser>('https://tv-shows.infinum.academy/users/me').pipe(
+			catchError(() => {
+				return EMPTY;
+			}),
+			tap((user) => {
+				this._user$.next(user);
+			}),
+		);
 	}
 
 	public register(data: IAuthFormData): Observable<HttpResponse<IUser>> {

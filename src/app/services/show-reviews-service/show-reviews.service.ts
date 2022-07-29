@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
+import { IReviews } from 'src/show/reviews.interface';
 import { IShowReview } from 'src/show/show-reviews.interface';
 
 @Injectable({
@@ -8,7 +10,7 @@ import { IShowReview } from 'src/show/show-reviews.interface';
 export class ShowReviewsService {
 	private reviews$: BehaviorSubject<Array<IShowReview>>;
 
-	constructor() {
+	constructor(private readonly http: HttpClient) {
 		this.reviews$ = new BehaviorSubject<Array<IShowReview>>([
 			{
 				id: 10,
@@ -39,6 +41,14 @@ export class ShowReviewsService {
 				});
 			}),
 		);
+		/*
+		return this.http.get<IReviews>(`https://tv-shows.infinum.academy/shows/${show_id}/reviews`).pipe(
+			map((reviews) => {
+				return reviews.reviews.map((review) => {
+					return review.show_id === show_id;
+				});
+			}),
+		);*/
 	}
 
 	public addReview(show_id: number, comment: string, rating: number): void {

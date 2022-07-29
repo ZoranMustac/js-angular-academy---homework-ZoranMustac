@@ -4,82 +4,41 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Show } from 'src/show/show.model';
 import { IShow } from 'src/show/shows-list.interface';
 import { IShowsResponse } from 'src/show/shows-response.interface';
+import { ISingleShow } from 'src/show/single-show.interface';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class ShowService {
-	private shows$: BehaviorSubject<Array<Show>>;
-
-	constructor(private readonly http: HttpClient) {
-		this.shows$ = new BehaviorSubject<Array<Show>>([]);
-	}
+	constructor(private readonly http: HttpClient) {}
 
 	public fetchAll(): Observable<Array<Show>> {
-		return this.http
-			.get<IShowsResponse>('https://tv-shows.infinum.academy/shows', {
-				headers: {
-					'access-token': localStorage.getItem('token') || '',
-					'token-type': localStorage.getItem('token-type') || '',
-					uid: localStorage.getItem('uid') || '',
-					expiry: localStorage.getItem('expiry') || '',
-					client: localStorage.getItem('client') || '',
-				},
-			})
-			.pipe(
-				map((showsResponse) => {
-					return showsResponse.shows.map((show) => {
-						return new Show(show);
-					});
-				}),
-			);
+		return this.http.get<IShowsResponse>('https://tv-shows.infinum.academy/shows').pipe(
+			map((showsResponse) => {
+				return showsResponse.shows.map((show) => {
+					return new Show(show);
+				});
+			}),
+		);
 	}
 
 	public fetchTopRated(): Observable<Array<Show>> {
-		return this.http
-			.get<IShowsResponse>('https://tv-shows.infinum.academy/shows/top_rated', {
-				headers: {
-					'access-token': localStorage.getItem('token') || '',
-					'token-type': localStorage.getItem('token-type') || '',
-					uid: localStorage.getItem('uid') || '',
-					expiry: localStorage.getItem('expiry') || '',
-					client: localStorage.getItem('client') || '',
-				},
-			})
-			.pipe(
-				map((showsResponse) => {
-					return showsResponse.shows.map((show) => {
-						return new Show(show);
-					});
-				}),
-			);
+		return this.http.get<IShowsResponse>('https://tv-shows.infinum.academy/shows/top_rated').pipe(
+			map((showsResponse) => {
+				return showsResponse.shows.map((show) => {
+					return new Show(show);
+				});
+			}),
+		);
 	}
 
 	public fetchById(id: number): Observable<Show | undefined> {
-		/*return this.shows$.pipe(
+		return this.http.get<ISingleShow>(`https://tv-shows.infinum.academy/shows/${id}`).pipe(
 			map((shows) => {
-				return shows.find((show) => {
+				return shows.singleShow.map((show) => {
 					return show.id === id;
 				});
 			}),
-		);*/
-
-		return this.http
-			.get<IShowsResponse>(`https://tv-shows.infinum.academy/shows/${id}`, {
-				headers: {
-					'access-token': localStorage.getItem('token') || '',
-					'token-type': localStorage.getItem('token-type') || '',
-					uid: localStorage.getItem('uid') || '',
-					expiry: localStorage.getItem('expiry') || '',
-					client: localStorage.getItem('client') || '',
-				},
-			})
-			.pipe(
-				map((showsResponse) => {
-					return showsResponse.shows.map((show) => {
-						return show.id === id;
-					});
-				}),
-			);
+		);
 	}
 }
