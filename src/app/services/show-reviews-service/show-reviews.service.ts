@@ -44,9 +44,7 @@ export class ShowReviewsService {
 		/*
 		return this.http.get<IReviews>(`https://tv-shows.infinum.academy/shows/${show_id}/reviews`).pipe(
 			map((reviews) => {
-				return reviews.reviews.map((review) => {
-					return review.show_id === show_id;
-				});
+					return new Show(shows);
 			}),
 		);*/
 	}

@@ -35,9 +35,7 @@ export class ShowService {
 	public fetchById(id: number): Observable<Show | undefined> {
 		return this.http.get<ISingleShow>(`https://tv-shows.infinum.academy/shows/${id}`).pipe(
 			map((shows) => {
-				return shows.singleShow.map((show) => {
-					return show.id === id;
-				});
+				return new Show(shows.show);
 			}),
 		);
 	}
