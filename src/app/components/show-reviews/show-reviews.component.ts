@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ShowReviewsService } from 'src/app/services/show-reviews-service/show-reviews.service';
 import { IShowReview } from 'src/show/show-reviews.interface';
 import { Show } from 'src/show/show.model';
+import { IUser } from 'src/show/user.interface';
 
 @Component({
 	selector: 'app-show-reviews',
@@ -14,10 +15,12 @@ export class ShowReviewsComponent implements OnInit {
 	@Input() show!: Show;
 	public email = localStorage.getItem('uid');
 	public showReviews$!: Observable<Array<IShowReview>>;
+	public showUser$!: Observable<Array<IUser>>;
 	public reviewFormGroup = new FormGroup({
 		comment: new FormControl('', Validators.required),
 		rating: new FormControl('', Validators.required),
 	});
+	public form = this.showReviewsService.add();
 
 	constructor(private readonly showReviewsService: ShowReviewsService) {}
 
@@ -30,10 +33,8 @@ export class ShowReviewsComponent implements OnInit {
 	}
 
 	public addReview() {
-		this.showReviewsService.addReview(
-			this.show.id,
-			this.reviewFormGroup.value.comment || '',
-			parseFloat(this.reviewFormGroup.value.rating || ''),
-		);
+		this.showReviewsService.addReview(this.form.value).subscribe(() => {
+			this.form.reset();
+		});
 	}
 }

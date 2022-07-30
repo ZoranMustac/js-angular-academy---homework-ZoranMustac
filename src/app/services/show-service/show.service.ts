@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Show } from 'src/show/show.model';
-import { IShow } from 'src/show/shows-list.interface';
 import { IShowsResponse } from 'src/show/shows-response.interface';
 import { ISingleShow } from 'src/show/single-show.interface';
 

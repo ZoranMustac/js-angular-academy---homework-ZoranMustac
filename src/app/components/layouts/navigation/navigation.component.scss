@@ -1,3 +1,5 @@
+@import '../../../../variables';
+
 mat-sidenav-container{
     height: 100vh;
     background-image: rgb(202, 42, 42);
@@ -48,6 +50,9 @@ mat-sidenav-container{
 
     .menu-image{
         display: flex;
+        position: sticky;
+        background-color: $dark-purple;
+        top: 0;
     }
 
     mat-sidenav{

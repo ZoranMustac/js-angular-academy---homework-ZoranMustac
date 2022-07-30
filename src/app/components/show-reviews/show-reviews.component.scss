@@ -5,15 +5,16 @@
 }
 
 .textarea{
-    max-width: 38vw;
+    max-width: 600px;
 }
 
 .rating{
-    max-width: 13vw;
+    max-width: 200px;
 }
 
-.button{
-    text-align: left;
+.button-rating{
+    display: grid;
+    grid-template-columns:  480px 200px;
 }
 
 .submit-button{
@@ -29,23 +30,46 @@
     height: 30px;
 }
 
-.space{
+.grid-container{
     display: grid;
-    grid-template-columns: 0.8fr 0.1fr 6fr;
+    grid-template-columns: 1fr 1fr 6fr;
     margin-bottom: 2vw;
     border-radius: 20px;
 }
 
-.distance{
+.grid-item-1{
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-item-3{
     margin-left: 30px;
 }
 
-@media screenn and (min-width: 600){
-    .space{
-        grid-template-columns: 0.1fr 6fr;
+@media screen and (max-width: 450px){
+    .grid-container{
+        grid-template-columns: auto;
+        column-gap: 1;
     }
     
-    .distance{
-        margin-left: 30px;
+    .grid-item-1{
+        align-items: stretch;
+        justify-items: stretch;
+        grid-column-start: 1;
+    }
+
+    .grid-item-2{
+        align-items: stretch;
+        justify-items: stretch;
+        grid-column-start: 2;
+    }
+    
+    .grid-item-3{
+        margin-left: 0px;
+        min-width: 200px;
+    }
+
+    .button-rating{
+        grid-template-columns:  auto auto;
     }
 }
