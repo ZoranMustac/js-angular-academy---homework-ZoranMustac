@@ -4,10 +4,11 @@ import { ShowDetailsComponent } from './show-details.component';
 import { ShowsListModule } from '../../shows-list/shows-list.module';
 import { MatCardModule } from '@angular/material/card';
 import { ShowReviewsModule } from '../../show-reviews/show-reviews.module';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
 	declarations: [ShowDetailsComponent],
 	exports: [ShowDetailsComponent],
-	imports: [CommonModule, ShowsListModule, MatCardModule, ShowReviewsModule],
+	imports: [CommonModule, ShowsListModule, MatCardModule, ShowReviewsModule, MatIconModule],
 })
 export class ShowDetailsModule {}

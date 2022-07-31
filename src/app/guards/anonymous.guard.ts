@@ -1,15 +1,42 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { map, Observable } from 'rxjs';
+import { NavigationComponent } from '../components/layouts/navigation/navigation.component';
+import { AuthService } from '../services/auth-service/auth.service';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class AnonymousGuard implements CanActivate {
+	constructor(private readonly authService: AuthService, private readonly router: Router) {}
 	canActivate(
 		route: ActivatedRouteSnapshot,
 		state: RouterStateSnapshot,
 	): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-		return true;
+		return this.authService.user$.pipe(
+			map((user) => {
+				if (!user) {
+					return true;
+				}
+
+				return this.router.createUrlTree(['/']);
+			}),
+		);
+	}
+
+	canDeactivate(
+		component: NavigationComponent,
+		currentRoute: ActivatedRouteSnapshot,
+		currentState: RouterStateSnapshot,
+		nextState?: RouterStateSnapshot,
+	): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+		if (component) {
+			localStorage.clear();
+			this.router.createUrlTree(['login']);
+			console.log('logout');
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

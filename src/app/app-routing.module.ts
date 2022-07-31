@@ -16,6 +16,7 @@ const routes: Routes = [
 		path: '',
 		component: NavigationComponent,
 		canActivate: [AuthGuard],
+		//canDeactivate: [AnonymousGuard],
 		children: [
 			{
 				path: '',
@@ -24,10 +25,6 @@ const routes: Routes = [
 			{
 				path: 'top-rated-shows',
 				component: TopRatedShowsComponent,
-			},
-			{
-				path: '',
-				component: ShowDetailsComponent,
 			},
 			{
 				path: 'show-details/:id',

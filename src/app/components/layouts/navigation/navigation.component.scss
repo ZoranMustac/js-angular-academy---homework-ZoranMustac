@@ -13,10 +13,30 @@ mat-sidenav-container{
 
 .title{
     margin-left: 10px;
+    &:focus{
+        background-color: $purple;
+    }
+}
+
+mat-nav-list{
+    margin-left: 10px;
 }
 
 .active{
-    color: red;
+    background-color: $purple;
+    border-radius: 24px;
+    max-width: 130px;
+}
+
+.active:hover{
+    background-color: $purple;
+    border-radius: 24px;
+    max-width: 130px;
+    outline-color: transparent;
+}
+
+.list-buttons:hover{
+    background-color: none;
 }
 
 .container {

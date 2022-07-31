@@ -1,11 +1,13 @@
 .container{
     display: grid;
     gap: 20px;
-    align-items: stretch;
+    align-items: center;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    justify-content: center;
 }
 
 .add-space{
     margin-top: 2vw;
     margin-bottom: 2vw;
+    margin-left: 2vw;
 }

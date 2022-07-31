@@ -1,5 +1,6 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, EMPTY, Observable, tap } from 'rxjs';
 import { IAuthFormData } from 'src/show/auth-form-data.interface';
 import { IUser } from 'src/show/user.interface';
@@ -10,7 +11,7 @@ import { IUser } from 'src/show/user.interface';
 export class AuthService {
 	private _user$ = new BehaviorSubject<IUser | null>(null);
 	public user$ = this._user$.asObservable();
-	constructor(private readonly http: HttpClient) {}
+	constructor(private readonly http: HttpClient, private readonly router: Router) {}
 
 	public init(): Observable<IUser> {
 		if (!localStorage.getItem('token')) return EMPTY;
@@ -51,5 +52,10 @@ export class AuthService {
 					localStorage.setItem('client', response.headers.get('client') || '');
 				}),
 			);
+	}
+
+	public logout() {
+		localStorage.clear();
+		this.router.navigate(['login']);
 	}
 }

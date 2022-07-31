@@ -13,7 +13,6 @@ import { IUser } from 'src/show/user.interface';
 })
 export class ShowReviewsComponent implements OnInit {
 	@Input() show!: Show;
-	public email = localStorage.getItem('uid');
 	public showReviews$!: Observable<Array<IShowReview>>;
 	public showUser$!: Observable<Array<IUser>>;
 	public reviewFormGroup = new FormGroup({

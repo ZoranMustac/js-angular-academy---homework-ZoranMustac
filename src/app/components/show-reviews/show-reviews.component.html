@@ -14,7 +14,7 @@
 	<div class="button-rating">
 		<mat-form-field appearance="outline" class="rating">
 			<mat-label>Rating</mat-label>
-			<input matInput placeholder="Ex. 8.6/10" formControlName="rating" />
+			<input matInput type="number" min="1" step="1" max="5" placeholder="Only 1-5" formControlName="rating" />
 		</mat-form-field>
 
 		<mat-card-actions class="button">
@@ -24,17 +24,24 @@
 		</mat-card-actions>
 	</div>
 
-	<mat-card *ngFor="let showReview of showReviews$ | async" class="grid-container">
-		<div class="grid-item-1">
-			<img class="image" src="{{ showReview.user.image_url }}" />
+	<mat-card *ngFor="let showReview of showReviews$ | async" class="flex-container">
+		<div class="columns">
+			<div class="flex-item-1">
+				<img
+					class="image"
+					src="{{
+						showReview.user.image_url ||
+							'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'
+					}}"
+				/>
+			</div>
+			<div class="flex-item-2">
+				<mat-card-content>{{ showReview.user.email }}</mat-card-content>
+				<mat-card-subtitle type="number">{{ showReview.rating }}/5</mat-card-subtitle>
+			</div>
 		</div>
 
-		<div class="grid-item-2">
-			<mat-card-content>{{ showReview.user.email }}</mat-card-content>
-			<mat-card-subtitle type="number">{{ showReview.rating }}</mat-card-subtitle>
-		</div>
-
-		<div class="grid-item-3">
+		<div class="flex-item-3">
 			<mat-card-content>{{ showReview.comment }}</mat-card-content>
 		</div>
 	</mat-card>

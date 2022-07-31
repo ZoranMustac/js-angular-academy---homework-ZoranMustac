@@ -15,6 +15,8 @@ import { AuthLayoutModule } from './components/layouts/auth-layout/auth-layout.m
 import { ProfileModule } from './components/pages/profile/profile.module';
 import { AuthService } from './services/auth-service/auth.service';
 import { HeadersInterceptor } from './interceptors/headers.interceptor';
+import { UploadModule } from './components/pages/upload/upload.module';
+import { FileInputModule } from './components/file-input/file-input.module';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -32,6 +34,8 @@ import { HeadersInterceptor } from './interceptors/headers.interceptor';
 		HttpClientModule,
 		AuthLayoutModule,
 		ProfileModule,
+		UploadModule,
+		FileInputModule,
 	],
 	providers: [
 		{

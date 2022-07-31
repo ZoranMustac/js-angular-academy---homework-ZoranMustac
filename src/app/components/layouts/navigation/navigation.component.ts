@@ -1,8 +1,9 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { INavigationLink } from 'src/show/navigation-links.interface';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-navigation',
@@ -13,7 +14,11 @@ export class NavigationComponent implements OnInit {
 	@ViewChild(MatSidenav, { static: true }) sidenav!: MatSidenav;
 	public readonly user$ = this.authService.user$;
 
-	constructor(private observe: BreakpointObserver, private readonly authService: AuthService) {}
+	constructor(
+		private observe: BreakpointObserver,
+		private readonly authService: AuthService,
+		private readonly router: Router,
+	) {}
 
 	ngOnInit() {
 		this.observe.observe(['(max-width: 900px)']).subscribe((response) => {
@@ -44,7 +49,7 @@ export class NavigationComponent implements OnInit {
 			exact: false,
 		},
 		{
-			url: 'login',
+			url: `login`,
 			title: 'Log out',
 			exact: false,
 		},
