@@ -15,10 +15,6 @@ export class ShowReviewsComponent implements OnInit {
 	@Input() show!: Show;
 	public showReviews$!: Observable<Array<IShowReview>>;
 	public showUser$!: Observable<Array<IUser>>;
-	public reviewFormGroup = new FormGroup({
-		comment: new FormControl('', Validators.required),
-		rating: new FormControl('', Validators.required),
-	});
 	public form = this.showReviewsService.add();
 
 	constructor(private readonly showReviewsService: ShowReviewsService) {}
@@ -32,8 +28,11 @@ export class ShowReviewsComponent implements OnInit {
 	}
 
 	public addReview() {
-		this.showReviewsService.addReview(this.form.value).subscribe(() => {
-			this.form.reset();
-		});
+		this.showReviewsService
+			.addReview(this.show.id, this.form.controls['comment'].value, this.form.controls['rating'].value)
+			.subscribe(() => {
+				this.form.reset();
+				this.showReviews$ = this.getReviews();
+			});
 	}
 }

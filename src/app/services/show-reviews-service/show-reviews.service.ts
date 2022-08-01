@@ -20,7 +20,12 @@ export class ShowReviewsService {
 		);
 	}
 
-	public addReview(data: IShowReview): Observable<IShowReview> {
+	public addReview(show_id: number, comment: string, rating: number): Observable<IShowReview> {
+		const data = {
+			show_id: show_id,
+			comment: comment,
+			rating: rating,
+		};
 		return this.http.post<IShowReview>(`https://tv-shows.infinum.academy/reviews`, data);
 	}
 

@@ -1,4 +1,4 @@
-<div class="container" [formGroup]="reviewFormGroup">
+<div class="container" [formGroup]="form">
 	<mat-form-field appearance="outline" class="textarea">
 		<mat-label>Leave a review</mat-label>
 		<textarea
@@ -18,9 +18,7 @@
 		</mat-form-field>
 
 		<mat-card-actions class="button">
-			<button mat-raised-button color="primary" [disabled]="reviewFormGroup.invalid" (click)="addReview()">
-				Post
-			</button>
+			<button mat-raised-button color="primary" [disabled]="form.invalid" (click)="addReview()">Post</button>
 		</mat-card-actions>
 	</div>
 

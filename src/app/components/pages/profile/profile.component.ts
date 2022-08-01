@@ -10,4 +10,8 @@ import { IUser } from 'src/show/user.interface';
 })
 export class ProfileComponent {
 	public email = localStorage.getItem('uid');
+
+	constructor(private readonly authService: AuthService) {}
+
+	public user$ = this.authService.user$;
 }

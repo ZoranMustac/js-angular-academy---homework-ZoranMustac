@@ -11,15 +11,20 @@
 		</button>
 		<img src="assets/logo.svg" class="display" />
 
-		<mat-nav-list *ngFor="let navigation of navigationLinks; let last = last" [ngClass]="{ last: last }">
-			<mat-button [routerLink]="navigation.url" class="list-buttons">
-				<mat-list-item [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: navigation.exact }">
-					<div class="title">
-						{{ navigation.title }}
-					</div>
-				</mat-list-item>
-			</mat-button>
+		<mat-nav-list>
+			<mat-list-item
+				*ngFor="let navigation of navigationLinks"
+				[routerLinkActive]="'active'"
+				[routerLink]="navigation.url"
+				class="list-buttons"
+				[routerLinkActiveOptions]="{ exact: navigation.exact }"
+			>
+				<div class="title">
+					{{ navigation.title }}
+				</div>
+			</mat-list-item>
 		</mat-nav-list>
+		<button mat-button class="last" (click)="onLogoutClick()">Log out</button>
 	</mat-sidenav>
 
 	<div>

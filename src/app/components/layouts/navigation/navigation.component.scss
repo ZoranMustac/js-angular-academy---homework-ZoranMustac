@@ -9,6 +9,9 @@ mat-sidenav-container{
     position: absolute;
     left: 0;
     bottom: 0;
+    font-size: 20px;
+    margin-left: 10px;
+    font-weight: 400;
 }
 
 .title{
@@ -32,7 +35,6 @@ mat-nav-list{
     background-color: $purple;
     border-radius: 24px;
     max-width: 130px;
-    outline-color: transparent;
 }
 
 .list-buttons:hover{

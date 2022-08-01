@@ -16,7 +16,6 @@ const routes: Routes = [
 		path: '',
 		component: NavigationComponent,
 		canActivate: [AuthGuard],
-		//canDeactivate: [AnonymousGuard],
 		children: [
 			{
 				path: '',

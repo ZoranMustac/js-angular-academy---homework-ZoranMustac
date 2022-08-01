@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { INavigationLink } from 'src/show/navigation-links.interface';
 import { BreakpointObserver } from '@angular/cdk/layout';
@@ -16,7 +16,7 @@ export class NavigationComponent implements OnInit {
 
 	constructor(
 		private observe: BreakpointObserver,
-		private readonly authService: AuthService,
+		public readonly authService: AuthService,
 		private readonly router: Router,
 	) {}
 
@@ -30,6 +30,10 @@ export class NavigationComponent implements OnInit {
 				this.sidenav.open();
 			}
 		});
+	}
+
+	public onLogoutClick() {
+		this.authService.logout();
 	}
 
 	public readonly navigationLinks: Array<INavigationLink> = [
@@ -46,11 +50,6 @@ export class NavigationComponent implements OnInit {
 		{
 			url: 'profile',
 			title: 'My Profile',
-			exact: false,
-		},
-		{
-			url: `login`,
-			title: 'Log out',
 			exact: false,
 		},
 	];
