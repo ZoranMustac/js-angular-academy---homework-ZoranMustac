@@ -11,6 +11,7 @@ mat-sidenav-container{
     bottom: 0;
     font-size: 20px;
     margin-left: 10px;
+    margin-bottom: 20px;
     font-weight: 400;
 }
 
@@ -29,16 +30,14 @@ mat-nav-list{
     background-color: $purple;
     border-radius: 24px;
     max-width: 130px;
-}
-
-.active:hover{
-    background-color: $purple;
-    border-radius: 24px;
-    max-width: 130px;
-}
-
-.list-buttons:hover{
-    background-color: none;
+    &:hover{
+        background-color: $purple;
+        border-radius: 24px;
+        max-width: 130px;
+    }
+    &:focus{
+        background-color: $purple;
+    }
 }
 
 .container {
@@ -74,6 +73,8 @@ mat-nav-list{
         display: flex;
         position: sticky;
         background-color: $dark-purple;
+        z-index: 1;
+        padding-bottom: 5px;
         top: 0;
     }
 
