@@ -12,14 +12,40 @@
     max-width: 13vw;
 }
 
+.button{
+    text-align: left;
+}
+
 .submit-button{
     width: 8vw;
     height: 2vw;
     text-align: center;
     margin-bottom: 4vw;
-    font-size: 0.8vw;
+}
+
+.image{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
 }
 
 .space{
+    display: grid;
+    grid-template-columns: 0.8fr 0.1fr 6fr;
     margin-bottom: 2vw;
+    border-radius: 20px;
+}
+
+.distance{
+    margin-left: 30px;
+}
+
+@media screenn and (min-width: 600){
+    .space{
+        grid-template-columns: 0.1fr 6fr;
+    }
+    
+    .distance{
+        margin-left: 30px;
+    }
 }

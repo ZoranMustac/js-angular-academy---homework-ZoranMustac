@@ -12,6 +12,7 @@ import { LoginModule } from './components/pages/login/login.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthLayoutModule } from './components/layouts/auth-layout/auth-layout.module';
+import { ProfileModule } from './components/pages/profile/profile.module';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { AuthLayoutModule } from './components/layouts/auth-layout/auth-layout.m
 		ReactiveFormsModule,
 		HttpClientModule,
 		AuthLayoutModule,
+		ProfileModule,
 	],
 	bootstrap: [AppComponent],
 })

@@ -1,15 +1,21 @@
 <form>
-	<mat-card>
-		<mat-card-title>Login</mat-card-title>
+	<mat-card class="card">
+		<img src="assets/logo.svg" class="display" />
 
 		<app-auth-form [form]="form"></app-auth-form>
 
-		<p>Don't have an account? <a [routerLink]="'/register'">Register</a></p>
-
-		<mat-card-actions>
-			<button mat-stroked-button [disabled]="form.invalid" appearance="outline" (click)="onLoginClick($event)">
+		<mat-card-actions class="button">
+			<button
+				mat-raised-button
+				color="primary"
+				[disabled]="form.invalid"
+				appearance="outline"
+				(click)="onLoginClick($event)"
+			>
 				Login
 			</button>
+
+			<p>Don't have an account? <a [routerLink]="'/register'" class="link">Register</a></p>
 		</mat-card-actions>
 	</mat-card>
 </form>

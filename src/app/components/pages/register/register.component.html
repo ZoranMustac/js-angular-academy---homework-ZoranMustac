@@ -1,6 +1,6 @@
 <form [formGroup]="form">
-	<mat-card>
-		<mat-card-title>Register</mat-card-title>
+	<mat-card class="card">
+		<img src="assets/logo.svg" class="display" />
 
 		<app-auth-form [form]="form"></app-auth-form>
 
@@ -10,12 +10,18 @@
 			<input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
 		</mat-form-field>
 
-		<p>Already have an account? <a [routerLink]="'/login'">Login</a></p>
-
-		<mat-card-actions>
-			<button mat-stroked-button [disabled]="form.invalid" appearance="outline" (click)="onRegisterClick($event)">
+		<mat-card-actions class="button">
+			<button
+				mat-raised-button
+				color="primary"
+				[disabled]="form.invalid"
+				appearance="outline"
+				(click)="onRegisterClick($event)"
+			>
 				Register
 			</button>
+
+			<p>Already have an account? <a [routerLink]="'/login'" class="link">Login</a></p>
 		</mat-card-actions>
 	</mat-card>
 </form>

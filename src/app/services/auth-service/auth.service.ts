@@ -14,7 +14,15 @@ export class AuthService {
 		return this.http.post<IUser>('https://tv-shows.infinum.academy/users', data);
 	}
 
+	public getEmailFromRegister(): Observable<IUser> {
+		return this.http.get<IUser>('https://tv-shows.infinum.academy/users');
+	}
+
 	public logIn(data: IAuthFormData): Observable<IUser> {
 		return this.http.post<IUser>('https://tv-shows.infinum.academy/users/sign_in', data);
+	}
+
+	public getEmailFromLogin(): Observable<IUser> {
+		return this.http.get<IUser>('https://tv-shows.infinum.academy/users/sign_in');
 	}
 }
