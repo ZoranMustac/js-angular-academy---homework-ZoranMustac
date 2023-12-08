@@ -1,0 +1,8 @@
+<div class="container">
+	<mat-card-content>
+		<app-file-input (fileChange)="onFileChange($event)"></app-file-input>
+	</mat-card-content>
+</div>
+<mat-card-actions>
+	<button mat-raised-button color="primary" (click)="onUploadButtonClick()">Upload</button>
+</mat-card-actions>

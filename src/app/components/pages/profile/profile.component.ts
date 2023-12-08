@@ -9,5 +9,9 @@ import { IUser } from 'src/show/user.interface';
 	styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
-	public email = localStorage.getItem('data');
+	public email = localStorage.getItem('uid');
+
+	constructor(private readonly authService: AuthService) {}
+
+	public user$ = this.authService.user$;
 }

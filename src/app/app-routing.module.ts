@@ -8,11 +8,14 @@ import { ProfileComponent } from './components/pages/profile/profile.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { ShowDetailsComponent } from './components/pages/show-details/show-details.component';
 import { TopRatedShowsComponent } from './components/pages/top-rated-shows/top-rated-shows.component';
+import { AnonymousGuard } from './guards/anonymous.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
 	{
 		path: '',
 		component: NavigationComponent,
+		canActivate: [AuthGuard],
 		children: [
 			{
 				path: '',
@@ -21,10 +24,6 @@ const routes: Routes = [
 			{
 				path: 'top-rated-shows',
 				component: TopRatedShowsComponent,
-			},
-			{
-				path: '',
-				component: ShowDetailsComponent,
 			},
 			{
 				path: 'show-details/:id',
@@ -39,6 +38,7 @@ const routes: Routes = [
 	{
 		path: '',
 		component: AuthLayoutComponent,
+		canActivate: [AnonymousGuard],
 		children: [
 			{
 				path: 'login',

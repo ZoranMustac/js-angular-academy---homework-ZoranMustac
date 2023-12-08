@@ -20,14 +20,12 @@ export class LoginComponent {
 	public onLoginClick(event: Event) {
 		event.preventDefault();
 		this.authService
-			.logIn({
+			.login({
 				email: this.form.controls.email.value,
 				password: this.form.controls.password.value,
 			} as IAuthFormData)
 			.subscribe(() => {
 				this.router.navigate(['']);
 			});
-
-		localStorage.setItem('data', JSON.stringify(this.form.controls.email.value));
 	}
 }

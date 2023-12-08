@@ -1,7 +1,10 @@
 <a *ngIf="shows !== null" [routerLink]="['/', 'show-details', shows.id]" class="underline">
 	<mat-card class="card-container">
 		<img mat-card-image class="image" [src]="shows.imageUrl" />
-		<mat-card-title>{{ shows.title }}</mat-card-title>
-		<mat-card-subtitle>{{ shows.averageRating ?? 'No rating' }}</mat-card-subtitle>
+		<mat-card-title class="title">{{ shows.title }}</mat-card-title>
+		<div class="star-rating">
+			<mat-icon aria-hidden="false" class="star" matPrefix>star</mat-icon>
+			<mat-card-subtitle class="rating-position">{{ shows.averageRating ?? 'No rating' }}/5</mat-card-subtitle>
+		</div>
 	</mat-card>
 </a>

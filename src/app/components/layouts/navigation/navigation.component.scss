@@ -1,3 +1,5 @@
+@import '../../../../variables';
+
 mat-sidenav-container{
     height: 100vh;
     background-image: rgb(202, 42, 42);
@@ -7,14 +9,36 @@ mat-sidenav-container{
     position: absolute;
     left: 0;
     bottom: 0;
+    font-size: 20px;
+    margin-left: 10px;
+    font-weight: 400;
 }
 
 .title{
     margin-left: 10px;
+    &:focus{
+        background-color: $purple;
+    }
+}
+
+mat-nav-list{
+    margin-left: 10px;
 }
 
 .active{
-    color: red;
+    background-color: $purple;
+    border-radius: 24px;
+    max-width: 130px;
+}
+
+.active:hover{
+    background-color: $purple;
+    border-radius: 24px;
+    max-width: 130px;
+}
+
+.list-buttons:hover{
+    background-color: none;
 }
 
 .container {
@@ -48,6 +72,9 @@ mat-sidenav-container{
 
     .menu-image{
         display: flex;
+        position: sticky;
+        background-color: $dark-purple;
+        top: 0;
     }
 
     mat-sidenav{
