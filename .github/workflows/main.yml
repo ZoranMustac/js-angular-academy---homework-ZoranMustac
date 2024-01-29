@@ -1,0 +1,14 @@
+            - name: wait-for-status-checks
+  # You may pin to the exact commit or the version.
+  # uses: omkarkhatavkar/wait-for-status-checks@c9f09c7e9f75db4018c561828840cf0a3bbee4c9
+  uses: omkarkhatavkar/wait-for-status-checks@v1.0.0
+  with:
+    # github commit head ref.
+    ref: # default is ${{ github.head_ref }}
+    # context string to filter the statuses api.
+    context: 
+    # Time to wait between polling (in seconds).
+    wait-interval: # optional, default is 300
+    # Number of times to poll before timing out.
+    count: # optional, default is 12
+          
