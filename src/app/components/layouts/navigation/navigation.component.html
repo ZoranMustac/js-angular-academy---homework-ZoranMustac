@@ -10,21 +10,22 @@
 			<mat-icon *ngIf="sidenav.opened">close</mat-icon>
 		</button>
 		<img src="assets/logo.svg" class="display" />
-
-		<mat-nav-list>
-			<mat-list-item
-				*ngFor="let navigation of navigationLinks"
-				[routerLinkActive]="'active'"
-				[routerLink]="navigation.url"
-				class="list-buttons"
-				[routerLinkActiveOptions]="{ exact: navigation.exact }"
-			>
-				<div class="title">
-					{{ navigation.title }}
-				</div>
-			</mat-list-item>
-		</mat-nav-list>
-		<button mat-button class="last" (click)="onLogoutClick()">Log out</button>
+		<div class="ative">
+			<mat-nav-list>
+				<mat-list-item
+					*ngFor="let navigation of navigationLinks"
+					[routerLinkActive]="'active'"
+					[routerLink]="navigation.url"
+					class="list-buttons"
+					[routerLinkActiveOptions]="{ exact: navigation.exact }"
+				>
+					<div class="title">
+						{{ navigation.title }}
+					</div>
+				</mat-list-item>
+			</mat-nav-list>
+			<button mat-button class="last" (click)="onLogoutClick()">Log out</button>
+		</div>
 	</mat-sidenav>
 
 	<div>
